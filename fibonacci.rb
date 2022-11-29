@@ -8,3 +8,20 @@
 # of these lengths a requirement… just get it done).
 
 # Algo recursive Fibonacci:
+
+# Declare a method called fibonacci that takes 2 parameters:
+# 1st: a number 'num'
+# 2cnd: an array 'fibo' wich defaults to [0, 1]
+# if the passed number is equal to 2 return the fibo array
+# else sum the 2 last elements of the fibo array, add the sum to fibo
+# and call the fibonacci method
+
+def fibonacci(num, fibo= [0,1])
+  return fibo if num == 2
+  fibo << (fibo[-1] + fibo[-2])
+  fibonacci(num - 1, fibo)
+end
+
+p fibonacci(5)
+p fibonacci(8)
+
