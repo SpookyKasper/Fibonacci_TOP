@@ -13,15 +13,39 @@
 # 1st: a number 'num'
 # 2cnd: an array 'fibo' wich defaults to [0, 1]
 # if the passed number is equal to 2 return the fibo array
-# else sum the 2 last elements of the fibo array, add the sum to fibo
+# elsif
+# else sum the 2 last elements of the fibo array, push that sum to fibo
 # and call the fibs method
 
-
-
-def fibs(num, fibo= [0,1])
-  num == 2 ? (return fibo) : fibo << (fibo[-1] + fibo[-2]) and fibs(num-1, fibo)
+def fibs_rec(num, fibo=[0, 1])
+  return [] if num == 0
+  return [0] if num == 1
+  num == 2 ? (return fibo) : fibo << fibo[-1] + fibo[-2] and fibs_rec(num - 1, fibo)
 end
 
-p fibs(5)
-p fibs(8)
+p fibs_rec(0)
+p fibs_rec(1)
+p fibs_rec(2)
+p fibs_rec(5)
+p fibs_rec(8)
 
+
+# Algo loopy fibs
+
+# declare a method 'fibs' that takes a number 'num' as a parameter
+# declare a while keepgoing loop
+
+def fibs(num)
+  return [] if num == 0
+  return [0] if num == 1
+  fibo = [0, 1]
+  while num > 2
+    fibo << fibo[-1] + fibo[-2]
+    num -= 1
+  end
+  fibo
+end
+
+p fibs(3)
+p fibs(0)
+p fibs(1)
